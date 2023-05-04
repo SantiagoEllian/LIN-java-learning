@@ -1,9 +1,10 @@
 package br.com.declarations.entities;
 
 import br.com.declarations.entities.Author;
+import br.com.declarations.entities.LinObj;
 
-public class Book{
-	private long ID;
+public class Book extends LinObj{
+	private String ID;
 	private String title;
 	private Author author;
 	private String publisher;
@@ -17,11 +18,14 @@ public class Book{
 	}
 	
 	// Full-parameter builder
-	public Book(String title, Author author, String publisher, String publicationYear, 
-		   int pageNumber, String edition) {
-		//Create property iteration. Maybe abstract to parent class?
+	public Book(Object... args) {
+		super(args);
 	}
 	
+	
+	public String vals() {
+		return ID + "; " + title + "// " + author.getName();
+	}
 	
 	@Override
 	public boolean equals(Object obj) {

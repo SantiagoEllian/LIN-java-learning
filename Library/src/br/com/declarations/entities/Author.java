@@ -1,30 +1,22 @@
 package br.com.declarations.entities;
 
 import br.com.declarations.entities.Author;
+import br.com.declarations.entities.LinObj;
+import java.lang.reflect.*;
 
-public class Author{
+
+public class Author extends LinObj{
 	private String name;
 	private String email;
 	
 	
-	// Copy builder
-	public Author(Author auth) {
-		//Create property iteration. Maybe abstract to parent class?
+	public Author(Object... args){
+		super(args);
 	}
 	
-	public Author(String name, String email) {
-		super();
-		this.name = name;
-		this.email = email;
-	}
 	
-	// Override later to format getProperty/setProperty(prop_name, value)
 	public String getName() {
-		return name;
-	}
-	
-	public void setName(String newName) {
-		this.name = newName;
+		return name + "; " + email;
 	}
 
 }
